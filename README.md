@@ -1,16 +1,26 @@
-# React + Vite
+# lsb
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses Storybook with the `@storybook/addon-mcp` addon enabled.
 
-Currently, two official plugins are available:
+## Storybook MCP
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The Storybook-side MCP server is already configured in [`.storybook/main.js`](/Users/artur.nizamov/sail/lsb/.storybook/main.js) via:
 
-## React Compiler
+- `@storybook/addon-mcp` in `addons`
+- `features.componentsManifest: true`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+When Storybook is running locally, the MCP endpoint is available at:
 
-## Expanding the ESLint configuration
+- `http://localhost:6006/mcp`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Useful commands:
+
+- `yarn storybook`
+- `yarn storybook:mcp:check`
+- `yarn build-storybook`
+
+Verification notes:
+
+- `yarn build-storybook` generates `storybook-static/manifests/components.json`
+- the generated component manifest is required by Storybook MCP
+- `yarn storybook:mcp:check` calls the local MCP endpoint with `tools/list`
