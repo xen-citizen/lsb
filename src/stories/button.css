@@ -8,8 +8,21 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .storybook-button--primary {
-  background-color: #555ab9;
+  background: linear-gradient(180deg, #1f4fa3 0%, #153a7a 100%);
+  box-shadow:
+    0 10px 24px rgba(21, 58, 122, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
   color: white;
+}
+.storybook-button--primary:hover {
+  background: linear-gradient(180deg, #255ab8 0%, #183f85 100%);
+}
+.storybook-button--primary:focus-visible {
+  outline: 3px solid rgba(37, 90, 184, 0.35);
+  outline-offset: 2px;
+}
+.storybook-button--primary:active {
+  background: linear-gradient(180deg, #183f85 0%, #122f63 100%);
 }
 .storybook-button--secondary {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
